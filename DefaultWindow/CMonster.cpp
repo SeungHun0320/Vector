@@ -32,12 +32,12 @@ void CMonster::Update()
 	float fRadian = acosf(fInEnemy);
 
 	if (m_tInfo.vDir.y > 0)
-		fRadian = 2.f * PI - fRadian;
+		fRadian = 2.f * D3DX_PI - fRadian;
 
-	float fDegree = DEGREE(fRadian);
+	float fDegree = D3DXToDegree(fRadian);
 
-	m_tInfo.vPos.x += m_fSpeed * cosf(RADIAN(fDegree));
-	m_tInfo.vPos.y -= m_fSpeed * sinf(RADIAN(fDegree));
+	m_tInfo.vPos.x += m_fSpeed * cosf(D3DXToRadian(fDegree));
+	m_tInfo.vPos.y -= m_fSpeed * sinf(D3DXToRadian(fDegree));
 }
 
 void CMonster::Render(HDC hDC)

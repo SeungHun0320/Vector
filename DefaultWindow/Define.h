@@ -7,10 +7,18 @@
 #define PI			3.141592f
 
 #define SQUARE(X)        (X) * (X)
-#define RADIAN(Degree)   (Degree) * PI/180.f
-#define DEGREE(Radian)   (Radian) * 180.f/PI
 
 extern HWND		g_hWnd;
+
+static D3DXVECTOR3  Get_Mouse()
+{
+	POINT pt{};
+
+	GetCursorPos(&pt);
+	ScreenToClient(g_hWnd, &pt);
+
+	return D3DXVECTOR3((float)pt.x, (float)pt.y, 0.f);
+}
 
 typedef struct tagInfo
 {
